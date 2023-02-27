@@ -63,10 +63,15 @@ def progress_check_a(weeks_completed):
 ##### MAIN PROGRAM #####
 
 def main():
-  input_weeks = int(input('How many weeks have you been taking CS138? '))
-  input_uds = int(input('Enter the number of unit deliverables completed: '))
-  input_labs = int(input('Enter the number of labs completed: '))
-  input_eps = int(input('Enter the number of engagement points you have: '))
+  while True:
+    try: 
+      input_weeks = int(input('How many weeks have you been taking CS138? '))
+      input_uds = int(input('Enter the number of unit deliverables completed: '))
+      input_labs = int(input('Enter the number of labs completed: '))
+      input_eps = int(input('Enter the number of engagement points you have: '))
+      break
+    except ValueError:
+      print("Error! Please enter a valid integer.")
   print('Your current grade is', a_or_an(determine_grade(input_uds, input_labs, input_eps)), determine_grade(input_uds, input_labs, input_eps) + '.')
   num_ud, num_lab, num_ep = progress_check_a(input_weeks)
   print(f'To be on track for an A, after completing {input_weeks} weeks of the semester you should have {num_ud} unit deliverables completed, {num_lab} labs completed, and earned {num_ep} engagement points.')
