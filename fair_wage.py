@@ -46,9 +46,14 @@ def check_30_rule(monthly_wage, rent, fair_wage, hours_per_week):
   
 def main():
   print('This program will calculate whether or not you are rent burdened according to the 30% rule.')
-  input_hourly_wage = float(input('\nPlease input your hourly wage: ')) # allows user to input their hourly wage as a float, so will accept fractions of dollars
-  input_hours_worked = float(input('Please input the number of hours you work per week: ')) # allows use to input hours worked weekly as a float, so can accept fractions of hours 
-  input_rent = float(input('Please input your monthly rent: ')) # allows user to input rent as a float, so can put fractions of dollars
+  while True:
+    try:
+      input_hourly_wage = float(input('\nPlease input your hourly wage: ')) # allows user to input their hourly wage as a float, so will accept fractions of dollars
+      input_hours_worked = float(input('Please input the number of hours you work per week: ')) # allows use to input hours worked weekly as a float, so can accept fractions of hours 
+      input_rent = float(input('Please input your monthly rent: ')) # allows user to input rent as a float, so can put fractions of dollars
+      break
+    except ValueError:
+      print("Error! Please enter a valid numerical value.")
 
   # runs monthly wage and fair wage calculator functions, whos outputs are assigned to a variable and used to check if the user is rent-burdened 
   monthly_wages = calc_monthly_wage(input_hourly_wage, input_hours_worked)
